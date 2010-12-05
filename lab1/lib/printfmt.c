@@ -221,7 +221,7 @@ void vprintfmt(void (*putch)(int, void*), void *putdat, const char *fmt, va_list
 			putch('X', putdat);
 			break;
 			*/
-			num = geto(&ap, lflag);
+			num = getuint(&ap, lflag);
 			base = 8;
 			goto number;
 

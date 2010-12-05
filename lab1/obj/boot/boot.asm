@@ -68,14 +68,14 @@ seta20.2:
     7c22:	7c 0f                	jl     7c33 <protcseg+0x1>
   movl    %cr0, %eax
     7c24:	20 c0                	and    %al,%al
-  orl     $CR0_PE_ON, %eax
+  orl     $CR0_PE_ON, %eax 		 #设置cr0的最后一位也就是PE标志为1，将CPU设置为保护模式
     7c26:	66 83 c8 01          	or     $0x1,%ax
   movl    %eax, %cr0
     7c2a:	0f 22 c0             	mov    %eax,%cr0
   
   # Jump to next instruction, but in 32-bit code segment.
   # Switches processor into 32-bit mode.
-  ljmp    $PROT_MODE_CSEG, $protcseg
+  ljmp    $PROT_MODE_CSEG, $protcseg #PROT_MODE_CSEG = 0x8
     7c2d:	ea 32 7c 08 00 66 b8 	ljmp   $0xb866,$0x87c32
 
 00007c32 <protcseg>:
@@ -83,7 +83,7 @@ seta20.2:
   .code32                     # Assemble for 32-bit mode
 protcseg:
   # Set up the protected-mode data segment registers
-  movw    $PROT_MODE_DSEG, %ax    # Our data segment selector
+  movw    $PROT_MODE_DSEG, %ax    # Our data segment selector,PROT_MODE_DSEG = 0x10
     7c32:	66 b8 10 00          	mov    $0x10,%ax
   movw    %ax, %ds                # -> DS: Data Segment
     7c36:	8e d8                	mov    %eax,%ds
@@ -123,11 +123,11 @@ spin:
     7c69:	00 90 90 55 ba f7    	add    %dl,-0x845aa70(%eax)
 
 00007c6c <waitdisk>:
+		offset++;
 	}
 }
 
-void
-waitdisk(void)
+void waitdisk(void)
 {
     7c6c:	55                   	push   %ebp
 
@@ -150,9 +150,8 @@ inb(int port)
     7c80:	c3                   	ret    
 
 00007c81 <readsect>:
-
-void
-readsect(void *dst, uint32_t offset)
+/* read sect from disk */
+void readsect(void *dst, uint32_t offset)
 {
     7c81:	55                   	push   %ebp
     7c82:	ba f7 01 00 00       	mov    $0x1f7,%edx
@@ -160,19 +159,19 @@ readsect(void *dst, uint32_t offset)
     7c89:	8b 4d 0c             	mov    0xc(%ebp),%ecx
     7c8c:	57                   	push   %edi
     7c8d:	ec                   	in     (%dx),%al
+}
 
-void
-waitdisk(void)
+void waitdisk(void)
 {
 	// wait for disk reaady
 	while ((inb(0x1F7) & 0xC0) != 0x40)
     7c8e:	25 c0 00 00 00       	and    $0xc0,%eax
     7c93:	83 f8 40             	cmp    $0x40,%eax
     7c96:	75 f5                	jne    7c8d <readsect+0xc>
+			 "memory", "cc");
 }
 
-static __inline void
-outb(int port, uint8_t data)
+static __inline void outb(int port, uint8_t data)
 {
 	__asm __volatile("outb %0,%w1" : : "a" (data), "d" (port));
     7c98:	ba f2 01 00 00       	mov    $0x1f2,%edx
@@ -207,10 +206,10 @@ inb(int port)
     7cc6:	25 c0 00 00 00       	and    $0xc0,%eax
     7ccb:	83 f8 40             	cmp    $0x40,%eax
     7cce:	75 f5                	jne    7cc5 <readsect+0x44>
+	return data;
 }
 
-static __inline void
-insl(int port, void *addr, int cnt)
+static __inline void insl(int port, void *addr, int cnt)
 {
 	__asm __volatile("cld\n\trepne\n\tinsl"			:
     7cd0:	8b 7d 08             	mov    0x8(%ebp),%edi
@@ -232,8 +231,8 @@ insl(int port, void *addr, int cnt)
 
 // Read 'count' bytes at 'offset' from kernel into virtual address 'va'.
 // Might copy more than asked
-void
-readseg(uint32_t va, uint32_t count, uint32_t offset)
+// read the head of ELF hand
+void readseg(uint32_t va, uint32_t count, uint32_t offset)
 {
     7ce3:	55                   	push   %ebp
     7ce4:	89 e5                	mov    %esp,%ebp
@@ -244,19 +243,19 @@ readseg(uint32_t va, uint32_t count, uint32_t offset)
     7cee:	53                   	push   %ebx
 	uint32_t end_va;
 
-	va &= 0xFFFFFF;
+	va &= 0xFFFFFF;//changer the link address into load address
     7cef:	89 d7                	mov    %edx,%edi
 	end_va = va + count;
 	
 	// round down to sector boundary
 	va &= ~(SECTSIZE - 1);
     7cf1:	89 d3                	mov    %edx,%ebx
-void
-readseg(uint32_t va, uint32_t count, uint32_t offset)
+// read the head of ELF hand
+void readseg(uint32_t va, uint32_t count, uint32_t offset)
 {
 	uint32_t end_va;
 
-	va &= 0xFFFFFF;
+	va &= 0xFFFFFF;//changer the link address into load address
     7cf3:	81 e7 ff ff ff 00    	and    $0xffffff,%edi
 	
 	// round down to sector boundary
@@ -266,17 +265,17 @@ readseg(uint32_t va, uint32_t count, uint32_t offset)
 	offset = (offset / SECTSIZE) + 1;
     7cf9:	c1 e8 09             	shr    $0x9,%eax
 
-	va &= 0xFFFFFF;
+	va &= 0xFFFFFF;//changer the link address into load address
 	end_va = va + count;
 	
 	// round down to sector boundary
 	va &= ~(SECTSIZE - 1);
     7cfc:	81 e3 00 fe ff 00    	and    $0xfffe00,%ebx
-readseg(uint32_t va, uint32_t count, uint32_t offset)
+void readseg(uint32_t va, uint32_t count, uint32_t offset)
 {
 	uint32_t end_va;
 
-	va &= 0xFFFFFF;
+	va &= 0xFFFFFF;//changer the link address into load address
 	end_va = va + count;
     7d02:	03 7d 0c             	add    0xc(%ebp),%edi
 	
@@ -338,11 +337,11 @@ readseg(uint32_t va, uint32_t count, uint32_t offset)
     7d25:	c3                   	ret    
 
 00007d26 <bootmain>:
+
 void readsect(void*, uint32_t);
 void readseg(uint32_t, uint32_t, uint32_t);
 
-void
-bootmain(void)
+void bootmain(void)
 {
     7d26:	55                   	push   %ebp
     7d27:	89 e5                	mov    %esp,%ebp
@@ -350,14 +349,15 @@ bootmain(void)
     7d2a:	53                   	push   %ebx
 	struct Proghdr *ph, *eph;
 
-	// read 1st page off disk
+	// read 1st page off disk 
+	// read the first 4KB  into the memory
 	readseg((uint32_t) ELFHDR, SECTSIZE*8, 0);
     7d2b:	6a 00                	push   $0x0
     7d2d:	68 00 10 00 00       	push   $0x1000
     7d32:	68 00 00 01 00       	push   $0x10000
     7d37:	e8 a7 ff ff ff       	call   7ce3 <readseg>
 
-	// is this a valid ELF?
+	// is this a valid ELF file?
 	if (ELFHDR->e_magic != ELF_MAGIC)
     7d3c:	83 c4 0c             	add    $0xc,%esp
     7d3f:	81 3d 00 00 01 00 7f 	cmpl   $0x464c457f,0x10000
@@ -400,6 +400,7 @@ bootmain(void)
 		readseg(ph->p_va, ph->p_memsz, ph->p_offset);
 
 	// call the entry point from the ELF header
+	// load the kernel to the memory
 	// note: does not return!
 	((void (*)(void)) (ELFHDR->e_entry & 0xFFFFFF))();
     7d7d:	a1 18 00 01 00       	mov    0x10018,%eax

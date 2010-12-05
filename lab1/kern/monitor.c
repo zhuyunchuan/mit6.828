@@ -6,6 +6,7 @@
 #include <inc/memlayout.h>
 #include <inc/assert.h>
 #include <inc/x86.h>
+#include <inc/types.h>
 
 #include <kern/console.h>
 #include <kern/monitor.h>
@@ -24,6 +25,7 @@ struct Command {
 static struct Command commands[] = {
 	{ "help", "Display this list of commands", mon_help },
 	{ "kerninfo", "Display information about the kernel", mon_kerninfo },
+	{"backtrace", "Display information about the stack", mon_backtrace},
 };
 #define NCOMMANDS (sizeof(commands)/sizeof(commands[0]))
 
@@ -60,6 +62,25 @@ int
 mon_backtrace(int argc, char **argv, struct Trapframe *tf)
 {
 	// Your code here.
+	uint32_t ebp_addr = read_ebp();	
+	uint32_t eip_addr = *((uint32_t*)(ebp_addr + 1));
+	uint32_t arg1 = *((uint32_t*)(ebp_addr + 2));
+	uint32_t arg2 = *((uint32_t*)(ebp_addr + 3));
+	uint32_t arg3 = *((uint32_t*)(ebp_addr + 4));
+
+	do
+	{
+		cprintf("ebp %x eip %x arg %x %x %x \n", ebp_addr, eip_addr, arg1, arg2, arg3);
+		ebp_addr = *((uint32_t*)(ebp_addr));
+		if( ebp_addr != 0)
+		{
+			uint32_t eip_addr = *((uint32_t*)(ebp_addr + 1));
+			uint32_t arg1 = *((uint32_t*)(ebp_addr + 2));
+			uint32_t arg2 = *((uint32_t*)(ebp_addr + 3));
+			uint32_t arg3 = *((uint32_t*)(ebp_addr + 4));
+		}
+	}while(ebp_addr != 0);
+
 	return 0;
 }
 
