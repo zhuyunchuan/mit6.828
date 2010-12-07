@@ -34,7 +34,8 @@ void i386_init(void)
 	cprintf("6828 decimal is %o octal!\n", 6828);
 
 
-
+	//check page_alloc() this is a test,not my code
+	check_page_alloc();
 
 
 

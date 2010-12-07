@@ -1,0 +1,28 @@
+6828 decimal is 15254 octal!
+entering test_backtrace 5
+entering test_backtrace 4
+entering test_backtrace 3
+entering test_backtrace 2
+entering test_backtrace 1
+entering test_backtrace 0
+ebp f010ff18 eip 26f010ff arg 126f010 100126f0 f0100126 
+ebp f010ff38 eip 26f010ff arg 126f010 100126f0 f0100126 
+ebp f010ff58 eip 26f010ff arg 126f010 100126f0 f0100126 
+ebp f010ff78 eip 26f010ff arg 126f010 100126f0 f0100126 
+ebp f010ff98 eip 26f010ff arg 126f010 100126f0 f0100126 
+ebp f010ffb8 eip 26f010ff arg 126f010 100126f0 f0100126 
+ebp f010ffd8 eip 26f010ff arg 126f010 100126f0 f0100126 
+ebp f010fff8 eip 26f010ff arg 126f010 100126f0 f0100126 
+leaving test_backtrace 0
+leaving test_backtrace 1
+leaving test_backtrace 2
+leaving test_backtrace 3
+leaving test_backtrace 4
+leaving test_backtrace 5
+Welcome to the JOS kernel monitor!
+Type 'help' for a list of commands.
+K> help
+help - Display this list of commands
+kerninfo - Display information about the kernel
+backtrace - Display information about the stack
+K> 

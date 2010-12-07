@@ -109,7 +109,7 @@ GD_UD	inc/memlayout.h	19;"	d	language:C++
 GD_UT	inc/memlayout.h	18;"	d	language:C++
 Gatedesc	inc/mmu.h	/^struct Gatedesc {$/;"	s	language:C++
 IOPHYSMEM	inc/memlayout.h	87;"	d	language:C++
-IO_RTC	inc/kclock.h	9;"	d	language:C++
+IO_RTC	kern/kclock.h	9;"	d	language:C++
 JOS_INC_ASSERT_H	inc/assert.h	4;"	d	language:C++
 JOS_INC_ELF_H	inc/elf.h	2;"	d	language:C++
 JOS_INC_ERROR_H	inc/error.h	4;"	d	language:C++
@@ -123,12 +123,12 @@ JOS_INC_STRING_H	inc/string.h	2;"	d	language:C++
 JOS_INC_TYPES_H	inc/types.h	2;"	d	language:C++
 JOS_INC_X86_H	inc/x86.h	2;"	d	language:C++
 JOS_KBDREG_H	inc/kbdreg.h	2;"	d	language:C++
-JOS_KERN_KCLOCK_H	inc/kclock.h	4;"	d	language:C++
+JOS_KERN_KCLOCK_H	kern/kclock.h	4;"	d	language:C++
 JOS_KERN_KDEBUG_H	kern/kdebug.h	2;"	d	language:C++
 JOS_KERN_MONITOR_H	kern/monitor.h	2;"	d	language:C++
-JOS_KERN_PMAP_H	inc/pmap.h	4;"	d	language:C++
+JOS_KERN_PMAP_H	kern/pmap.h	4;"	d	language:C++
 JOS_STAB_H	inc/stab.h	2;"	d	language:C++
-KADDR	inc/pmap.h	28;"	d	language:C++
+KADDR	kern/pmap.h	28;"	d	language:C++
 KBCMDP	inc/kbdreg.h	29;"	d	language:C++
 KBC_AUXDISABLE	inc/kbdreg.h	32;"	d	language:C++
 KBC_AUXECHO	inc/kbdreg.h	36;"	d	language:C++
@@ -211,8 +211,8 @@ LIST_REMOVE	inc/queue.h	212;"	d	language:C++
 MAX	inc/types.h	48;"	d	language:C++
 MAXARGS	kern/monitor.c	92;"	d	language:C	file:
 MAXERROR	inc/error.h	16;"	d	language:C++
-MC_NVRAM_SIZE	inc/kclock.h	12;"	d	language:C++
-MC_NVRAM_START	inc/kclock.h	11;"	d	language:C++
+MC_NVRAM_SIZE	kern/kclock.h	12;"	d	language:C++
+MC_NVRAM_START	kern/kclock.h	11;"	d	language:C++
 MIN	inc/types.h	42;"	d	language:C++
 MONO_BASE	kern/console.h	11;"	d	language:C++
 MONO_BUF	kern/console.h	12;"	d	language:C++
@@ -223,13 +223,13 @@ NPTENTRIES	inc/mmu.h	48;"	d	language:C++
 NULL	inc/stdio.h	7;"	d	language:C++
 NULL	inc/types.h	5;"	d	language:C++
 NUMLOCK	kern/console.c	216;"	d	language:C	file:
-NVRAM_BASEHI	inc/kclock.h	16;"	d	language:C++
-NVRAM_BASELO	inc/kclock.h	15;"	d	language:C++
-NVRAM_CENTURY	inc/kclock.h	27;"	d	language:C++
-NVRAM_EXTHI	inc/kclock.h	20;"	d	language:C++
-NVRAM_EXTLO	inc/kclock.h	19;"	d	language:C++
-NVRAM_PEXTHI	inc/kclock.h	24;"	d	language:C++
-NVRAM_PEXTLO	inc/kclock.h	23;"	d	language:C++
+NVRAM_BASEHI	kern/kclock.h	16;"	d	language:C++
+NVRAM_BASELO	kern/kclock.h	15;"	d	language:C++
+NVRAM_CENTURY	kern/kclock.h	27;"	d	language:C++
+NVRAM_EXTHI	kern/kclock.h	20;"	d	language:C++
+NVRAM_EXTLO	kern/kclock.h	19;"	d	language:C++
+NVRAM_PEXTHI	kern/kclock.h	24;"	d	language:C++
+NVRAM_PEXTLO	kern/kclock.h	23;"	d	language:C++
 N_BCOMM	inc/stab.h	37;"	d	language:C++
 N_BINCL	inc/stab.h	29;"	d	language:C++
 N_BSLINE	inc/stab.h	25;"	d	language:C++
@@ -256,7 +256,7 @@ N_SO	inc/stab.h	27;"	d	language:C++
 N_SOL	inc/stab.h	30;"	d	language:C++
 N_SSYM	inc/stab.h	26;"	d	language:C++
 N_STSYM	inc/stab.h	18;"	d	language:C++
-PADDR	inc/pmap.h	18;"	d	language:C++
+PADDR	kern/pmap.h	18;"	d	language:C++
 PDX	inc/mmu.h	34;"	d	language:C++
 PDXSHIFT	inc/mmu.h	57;"	d	language:C++
 PFTEMP	inc/memlayout.h	130;"	d	language:C++
@@ -342,14 +342,14 @@ _warn	kern/init.c	/^_warn(const char *file, int line, const char *fmt,...)$/;"	f
 accept	lib/sockets.c	/^accept(int s, struct sockaddr *addr, socklen_t *addrlen)$/;"	f	language:C	signature:(int s, struct sockaddr *addr, socklen_t *addrlen)
 addr_6845	kern/console.c	/^static unsigned addr_6845;$/;"	v	language:C	file:
 assert	inc/assert.h	14;"	d	language:C++
-basemem	inc/pmap.c	/^static size_t basemem;		\/\/ Amount of base memory (in bytes)$/;"	v	language:C	file:
+basemem	kern/pmap.c	/^static size_t basemem;		\/\/ Amount of base memory (in bytes)$/;"	v	language:C	file:
 bind	lib/sockets.c	/^bind(int s, struct sockaddr *name, socklen_t namelen)$/;"	f	language:C	signature:(int s, struct sockaddr *name, socklen_t namelen)
 bool	inc/types.h	/^typedef int bool;$/;"	t	language:C++
-boot_alloc	inc/pmap.c	/^boot_alloc(uint32_t n, uint32_t align)$/;"	f	language:C	file:	signature:(uint32_t n, uint32_t align)
-boot_cr3	inc/pmap.c	/^physaddr_t boot_cr3;		\/\/ Physical address of boot time page directory$/;"	v	language:C
-boot_freemem	inc/pmap.c	/^static char* boot_freemem;	\/\/ Pointer to next byte of free mem$/;"	v	language:C	file:
-boot_map_segment	inc/pmap.c	/^boot_map_segment(pde_t *pgdir, uintptr_t la, size_t size, physaddr_t pa, int perm)$/;"	f	language:C	file:	signature:(pde_t *pgdir, uintptr_t la, size_t size, physaddr_t pa, int perm)
-boot_pgdir	inc/pmap.c	/^pde_t* boot_pgdir;		\/\/ Virtual address of boot time page directory$/;"	v	language:C
+boot_alloc	kern/pmap.c	/^boot_alloc(uint32_t n, uint32_t align)$/;"	f	language:C	file:	signature:(uint32_t n, uint32_t align)
+boot_cr3	kern/pmap.c	/^physaddr_t boot_cr3;		\/\/ Physical address of boot time page directory$/;"	v	language:C
+boot_freemem	kern/pmap.c	/^static char* boot_freemem;	\/\/ Pointer to next byte of free mem$/;"	v	language:C	file:
+boot_map_segment	kern/pmap.c	/^boot_map_segment(pde_t *pgdir, uintptr_t la, size_t size, physaddr_t pa, int perm)$/;"	f	language:C	file:	signature:(pde_t *pgdir, uintptr_t la, size_t size, physaddr_t pa, int perm)
+boot_pgdir	kern/pmap.c	/^pde_t* boot_pgdir;		\/\/ Virtual address of boot time page directory$/;"	v	language:C
 bootmain	boot/main.c	/^void bootmain(void)$/;"	f	language:C	signature:(void)
 breakpoint	inc/x86.h	/^breakpoint(void)$/;"	f	language:C++	signature:(void)
 buf	kern/console.c	/^	uint8_t buf[CONSBUFSIZE];$/;"	m	language:C	struct:__anon1	file:
@@ -358,9 +358,9 @@ buf	lib/readline.c	/^static char buf[BUFLEN];$/;"	v	language:C	file:
 cga_init	kern/console.c	/^cga_init(void)$/;"	f	language:C	file:	signature:(void)
 cga_putc	kern/console.c	/^static void cga_putc(int c)$/;"	f	language:C	file:	signature:(int c)
 charcode	kern/console.c	/^static uint8_t *charcode[4] = {$/;"	v	language:C	file:
-check_boot_pgdir	inc/pmap.c	/^check_boot_pgdir(void)$/;"	f	language:C	file:	signature:(void)
-check_page_alloc	inc/pmap.c	/^check_page_alloc()$/;"	f	language:C	file:
-check_va2pa	inc/pmap.c	/^check_va2pa(pde_t *pgdir, uintptr_t va)$/;"	f	language:C	file:	signature:(pde_t *pgdir, uintptr_t va)
+check_boot_pgdir	kern/pmap.c	/^check_boot_pgdir(void)$/;"	f	language:C	file:	signature:(void)
+check_page_alloc	kern/pmap.c	/^check_page_alloc()$/;"	f	language:C	file:
+check_va2pa	kern/pmap.c	/^check_va2pa(pde_t *pgdir, uintptr_t va)$/;"	f	language:C	file:	signature:(pde_t *pgdir, uintptr_t va)
 closesocket	lib/sockets.c	/^closesocket(int s)$/;"	f	language:C	signature:(int s)
 cnt	lib/printfmt.c	/^	int cnt;$/;"	m	language:C	struct:sprintbuf	file:
 commands	kern/monitor.c	/^static struct Command commands[] = {$/;"	v	language:C	typeref:struct:Command	file:
@@ -403,7 +403,7 @@ eip_fn_namelen	kern/kdebug.h	/^	int eip_fn_namelen;		\/\/ Length of function nam
 eip_fn_narg	kern/kdebug.h	/^	int eip_fn_narg;		\/\/ Number of function arguments$/;"	m	language:C++	struct:Eipdebuginfo
 eip_line	kern/kdebug.h	/^	int eip_line;			\/\/ Source code linenumber for EIP$/;"	m	language:C++	struct:Eipdebuginfo
 error_string	lib/printfmt.c	/^static const char * const error_string[MAXERROR + 1] =$/;"	v	language:C	file:
-extmem	inc/pmap.c	/^static size_t extmem;		\/\/ Amount of extended memory (in bytes)$/;"	v	language:C	file:
+extmem	kern/pmap.c	/^static size_t extmem;		\/\/ Amount of extended memory (in bytes)$/;"	v	language:C	file:
 func	kern/monitor.c	/^	int (*func)(int argc, char** argv, struct Trapframe* tf);$/;"	m	language:C	struct:Command	file:
 gd_args	inc/mmu.h	/^	unsigned gd_args : 5;        \/\/ # args, 0 for interrupt\/trap gates$/;"	m	language:C++	struct:Gatedesc
 gd_dpl	inc/mmu.h	/^	unsigned gd_dpl : 2;         \/\/ descriptor(meaning new) privilege level$/;"	m	language:C++	struct:Gatedesc
@@ -414,15 +414,15 @@ gd_rsv1	inc/mmu.h	/^	unsigned gd_rsv1 : 3;        \/\/ reserved(should be zero I
 gd_s	inc/mmu.h	/^	unsigned gd_s : 1;           \/\/ must be 0 (system)$/;"	m	language:C++	struct:Gatedesc
 gd_ss	inc/mmu.h	/^	unsigned gd_ss : 16;         \/\/ segment selector$/;"	m	language:C++	struct:Gatedesc
 gd_type	inc/mmu.h	/^	unsigned gd_type : 4;        \/\/ type(STS_{TG,IG32,TG32})$/;"	m	language:C++	struct:Gatedesc
-gdt	inc/pmap.c	/^struct Segdesc gdt[] =$/;"	v	language:C	typeref:struct:Segdesc
-gdt_pd	inc/pmap.c	/^struct Pseudodesc gdt_pd = {$/;"	v	language:C	typeref:struct:Pseudodesc
+gdt	kern/pmap.c	/^struct Segdesc gdt[] =$/;"	v	language:C	typeref:struct:Segdesc
+gdt_pd	kern/pmap.c	/^struct Pseudodesc gdt_pd = {$/;"	v	language:C	typeref:struct:Pseudodesc
 getchar	kern/console.c	/^int getchar(void)$/;"	f	language:C	signature:(void)
 getint	lib/printfmt.c	/^static long long getint(va_list *ap, int lflag)$/;"	f	language:C	file:	signature:(va_list *ap, int lflag)
 geto	lib/printfmt.c	/^static long long geto(va_list *ap, int lflag)$/;"	f	language:C	file:	signature:(va_list *ap, int lflag)
 getuint	lib/printfmt.c	/^static unsigned long long getuint(va_list *ap, int lflag)$/;"	f	language:C	file:	signature:(va_list *ap, int lflag)
-i386_detect_memory	inc/pmap.c	/^i386_detect_memory(void)$/;"	f	language:C	signature:(void)
+i386_detect_memory	kern/pmap.c	/^i386_detect_memory(void)$/;"	f	language:C	signature:(void)
 i386_init	kern/init.c	/^void i386_init(void)$/;"	f	language:C	signature:(void)
-i386_vm_init	inc/pmap.c	/^i386_vm_init(void)$/;"	f	language:C	signature:(void)
+i386_vm_init	kern/pmap.c	/^i386_vm_init(void)$/;"	f	language:C	signature:(void)
 inb	inc/x86.h	/^inb(int port)$/;"	f	language:C++	signature:(int port)
 inl	inc/x86.h	/^inl(int port)$/;"	f	language:C++	signature:(int port)
 insb	inc/x86.h	/^insb(int port, void *addr, int cnt)$/;"	f	language:C++	signature:(int port, void *addr, int cnt)
@@ -447,9 +447,9 @@ listen	lib/sockets.c	/^listen(int s, int backlog)$/;"	f	language:C	signature:(in
 lldt	inc/x86.h	/^lldt(uint16_t sel)$/;"	f	language:C++	signature:(uint16_t sel)
 lpt_putc	kern/console.c	/^lpt_putc(int c)$/;"	f	language:C	file:	signature:(int c)
 ltr	inc/x86.h	/^ltr(uint16_t sel)$/;"	f	language:C++	signature:(uint16_t sel)
-maxpa	inc/pmap.c	/^static physaddr_t maxpa;	\/\/ Maximum physical address$/;"	v	language:C	file:
-mc146818_read	inc/kclock.c	/^mc146818_read(unsigned reg)$/;"	f	language:C	signature:(unsigned reg)
-mc146818_write	inc/kclock.c	/^mc146818_write(unsigned reg, unsigned datum)$/;"	f	language:C	signature:(unsigned reg, unsigned datum)
+maxpa	kern/pmap.c	/^static physaddr_t maxpa;	\/\/ Maximum physical address$/;"	v	language:C	file:
+mc146818_read	kern/kclock.c	/^mc146818_read(unsigned reg)$/;"	f	language:C	signature:(unsigned reg)
+mc146818_write	kern/kclock.c	/^mc146818_write(unsigned reg, unsigned datum)$/;"	f	language:C	signature:(unsigned reg, unsigned datum)
 memcmp	lib/string.c	/^memcmp(const void *v1, const void *v2, size_t n)$/;"	f	language:C	signature:(const void *v1, const void *v2, size_t n)
 memcpy	lib/string.c	/^memcpy(void *dst, void *src, size_t n)$/;"	f	language:C	signature:(void *dst, void *src, size_t n)
 memfind	lib/string.c	/^memfind(const void *s, int c, size_t n)$/;"	f	language:C	signature:(const void *s, int c, size_t n)
@@ -466,7 +466,7 @@ n_type	inc/stab.h	/^	uint8_t n_type;         \/\/ type of symbol$/;"	m	language:
 n_value	inc/stab.h	/^	uintptr_t n_value;	\/\/ value of symbol$/;"	m	language:C++	struct:Stab
 name	kern/monitor.c	/^	const char *name;$/;"	m	language:C	struct:Command	file:
 normalmap	kern/console.c	/^static uint8_t normalmap[256] =$/;"	v	language:C	file:
-npage	inc/pmap.c	/^size_t npage;			\/\/ Amount of physical memory (in pages)$/;"	v	language:C
+npage	kern/pmap.c	/^size_t npage;			\/\/ Amount of physical memory (in pages)$/;"	v	language:C
 nsipc	lib/nsipc.c	/^nsipc(unsigned type, void *fsreq, void *dstva, int *perm)$/;"	f	language:C	file:	signature:(unsigned type, void *fsreq, void *dstva, int *perm)
 nsipc_accept	lib/nsipc.c	/^nsipc_accept(int s, struct sockaddr *addr, socklen_t *addrlen)$/;"	f	language:C	signature:(int s, struct sockaddr *addr, socklen_t *addrlen)
 nsipc_bind	lib/nsipc.c	/^nsipc_bind(int s, struct sockaddr *name, socklen_t namelen)$/;"	f	language:C	signature:(int s, struct sockaddr *name, socklen_t namelen)
@@ -477,7 +477,7 @@ nsipc_recv	lib/nsipc.c	/^nsipc_recv(int s, void *mem, int len, unsigned int flag
 nsipc_send	lib/nsipc.c	/^nsipc_send(int s, const void *dataptr, int size, unsigned int flags)$/;"	f	language:C	signature:(int s, const void *dataptr, int size, unsigned int flags)
 nsipc_shutdown	lib/nsipc.c	/^nsipc_shutdown(int s, int how)$/;"	f	language:C	signature:(int s, int how)
 nsipc_socket	lib/nsipc.c	/^nsipc_socket(int domain, int type, int protocol)$/;"	f	language:C	signature:(int domain, int type, int protocol)
-nvram_read	inc/pmap.c	/^nvram_read(int r)$/;"	f	language:C	file:	signature:(int r)
+nvram_read	kern/pmap.c	/^nvram_read(int r)$/;"	f	language:C	file:	signature:(int r)
 off_t	inc/types.h	/^typedef int32_t off_t;$/;"	t	language:C++
 offsetof	inc/types.h	70;"	d	language:C++
 outb	inc/x86.h	/^static __inline void outb(int port, uint8_t data)$/;"	f	language:C++	signature:(int port, uint8_t data)
@@ -494,27 +494,27 @@ p_offset	inc/elf.h	/^	uint32_t p_offset;$/;"	m	language:C++	struct:Proghdr
 p_pa	inc/elf.h	/^	uint32_t p_pa;$/;"	m	language:C++	struct:Proghdr
 p_type	inc/elf.h	/^	uint32_t p_type;$/;"	m	language:C++	struct:Proghdr
 p_va	inc/elf.h	/^	uint32_t p_va;$/;"	m	language:C++	struct:Proghdr
-pa2page	inc/pmap.h	/^pa2page(physaddr_t pa)$/;"	f	language:C++	signature:(physaddr_t pa)
-page2kva	inc/pmap.h	/^page2kva(struct Page *pp)$/;"	f	language:C++	signature:(struct Page *pp)
-page2pa	inc/pmap.h	/^page2pa(struct Page *pp)$/;"	f	language:C++	signature:(struct Page *pp)
-page2ppn	inc/pmap.h	/^page2ppn(struct Page *pp)$/;"	f	language:C++	signature:(struct Page *pp)
-page_alloc	inc/pmap.c	/^page_alloc(struct Page **pp_store)$/;"	f	language:C	signature:(struct Page **pp_store)
-page_check	inc/pmap.c	/^page_check(void)$/;"	f	language:C	file:	signature:(void)
-page_decref	inc/pmap.c	/^page_decref(struct Page* pp)$/;"	f	language:C	signature:(struct Page* pp)
-page_free	inc/pmap.c	/^page_free(struct Page *pp)$/;"	f	language:C	signature:(struct Page *pp)
-page_free_list	inc/pmap.c	/^static struct Page_list page_free_list;	\/\/ Free list of physical pages$/;"	v	language:C	typeref:struct:Page_list	file:
-page_init	inc/pmap.c	/^page_init(void)$/;"	f	language:C	signature:(void)
-page_initpp	inc/pmap.c	/^page_initpp(struct Page *pp)$/;"	f	language:C	file:	signature:(struct Page *pp)
-page_insert	inc/pmap.c	/^page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm) $/;"	f	language:C	signature:(pde_t *pgdir, struct Page *pp, void *va, int perm)
-page_lookup	inc/pmap.c	/^page_lookup(pde_t *pgdir, void *va, pte_t **pte_store)$/;"	f	language:C	signature:(pde_t *pgdir, void *va, pte_t **pte_store)
-page_remove	inc/pmap.c	/^page_remove(pde_t *pgdir, void *va)$/;"	f	language:C	signature:(pde_t *pgdir, void *va)
-pages	inc/pmap.c	/^struct Page* pages;		\/\/ Virtual address of physical page array$/;"	v	language:C	typeref:struct:Page
+pa2page	kern/pmap.h	/^pa2page(physaddr_t pa)$/;"	f	language:C++	signature:(physaddr_t pa)
+page2kva	kern/pmap.h	/^page2kva(struct Page *pp)$/;"	f	language:C++	signature:(struct Page *pp)
+page2pa	kern/pmap.h	/^page2pa(struct Page *pp)$/;"	f	language:C++	signature:(struct Page *pp)
+page2ppn	kern/pmap.h	/^page2ppn(struct Page *pp)$/;"	f	language:C++	signature:(struct Page *pp)
+page_alloc	kern/pmap.c	/^page_alloc(struct Page **pp_store)$/;"	f	language:C	signature:(struct Page **pp_store)
+page_check	kern/pmap.c	/^page_check(void)$/;"	f	language:C	file:	signature:(void)
+page_decref	kern/pmap.c	/^page_decref(struct Page* pp)$/;"	f	language:C	signature:(struct Page* pp)
+page_free	kern/pmap.c	/^page_free(struct Page *pp)$/;"	f	language:C	signature:(struct Page *pp)
+page_free_list	kern/pmap.c	/^static struct Page_list page_free_list;	\/\/ Free list of physical pages$/;"	v	language:C	typeref:struct:Page_list	file:
+page_init	kern/pmap.c	/^page_init(void)$/;"	f	language:C	signature:(void)
+page_initpp	kern/pmap.c	/^page_initpp(struct Page *pp)$/;"	f	language:C	file:	signature:(struct Page *pp)
+page_insert	kern/pmap.c	/^page_insert(pde_t *pgdir, struct Page *pp, void *va, int perm) $/;"	f	language:C	signature:(pde_t *pgdir, struct Page *pp, void *va, int perm)
+page_lookup	kern/pmap.c	/^page_lookup(pde_t *pgdir, void *va, pte_t **pte_store)$/;"	f	language:C	signature:(pde_t *pgdir, void *va, pte_t **pte_store)
+page_remove	kern/pmap.c	/^page_remove(pde_t *pgdir, void *va)$/;"	f	language:C	signature:(pde_t *pgdir, void *va)
+pages	kern/pmap.c	/^struct Page* pages;		\/\/ Virtual address of physical page array$/;"	v	language:C	typeref:struct:Page
 panic	inc/assert.h	12;"	d	language:C++
 panicstr	kern/init.c	/^static const char *panicstr;$/;"	v	language:C	file:
 pd_base	inc/mmu.h	/^	uint32_t pd_base;		\/\/ Base address$/;"	m	language:C++	struct:Pseudodesc
 pd_lim	inc/mmu.h	/^	uint16_t pd_lim;		\/\/ Limit$/;"	m	language:C++	struct:Pseudodesc
 pde_t	inc/memlayout.h	/^typedef uint32_t pde_t;$/;"	t	language:C++
-pgdir_walk	inc/pmap.c	/^pgdir_walk(pde_t *pgdir, const void *va, int create)$/;"	f	language:C	signature:(pde_t *pgdir, const void *va, int create)
+pgdir_walk	kern/pmap.c	/^pgdir_walk(pde_t *pgdir, const void *va, int create)$/;"	f	language:C	signature:(pde_t *pgdir, const void *va, int create)
 physaddr_t	inc/types.h	/^typedef uint32_t physaddr_t;$/;"	t	language:C++
 pp_link	inc/memlayout.h	/^	Page_LIST_entry_t pp_link;	\/* free list link *\/$/;"	m	language:C++	struct:Page
 pp_ref	inc/memlayout.h	/^	uint16_t pp_ref;$/;"	m	language:C++	struct:Page
@@ -589,7 +589,7 @@ strncpy	lib/string.c	/^strncpy(char *dst, const char *src, size_t size) {$/;"	f	
 strnlen	lib/string.c	/^strnlen(const char *s, size_t size)$/;"	f	language:C	signature:(const char *s, size_t size)
 strtol	lib/string.c	/^strtol(const char *s, char **endptr, int base)$/;"	f	language:C	signature:(const char *s, char **endptr, int base)
 test_backtrace	kern/init.c	/^void test_backtrace(int x)$/;"	f	language:C	signature:(int x)
-tlb_invalidate	inc/pmap.c	/^tlb_invalidate(pde_t *pgdir, void *va)$/;"	f	language:C	signature:(pde_t *pgdir, void *va)
+tlb_invalidate	kern/pmap.c	/^tlb_invalidate(pde_t *pgdir, void *va)$/;"	f	language:C	signature:(pde_t *pgdir, void *va)
 tlbflush	inc/x86.h	/^tlbflush(void)$/;"	f	language:C++	signature:(void)
 togglecode	kern/console.c	/^static uint8_t togglecode[256] = $/;"	v	language:C	file:
 ts_cr3	inc/mmu.h	/^	physaddr_t ts_cr3;	\/\/ Page directory base$/;"	m	language:C++	struct:Taskstate
